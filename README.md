@@ -214,6 +214,8 @@ Set-Location backend
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
+If the database is empty, the backend startup will create the 2 test users and sample TODO data automatically.
+
 Swagger UI:
 - `http://localhost:8000/docs`
 
@@ -274,7 +276,9 @@ Open:
 - frontend: `http://localhost:3000`
 - backend docs: `http://localhost:8000/docs`
 
-Seed data after containers start:
+Seed data is created automatically when the backend starts and the database is empty.
+
+If you want to reseed manually after containers start:
 
 Run this command from the same project root folder:
 
@@ -299,7 +303,9 @@ Ports:
 - frontend debugger attach: `9229`
 - postgres: `5432`
 
-Seed data in development mode:
+Seed data is created automatically when the backend starts and the database is empty.
+
+If you want to reseed manually in development mode:
 
 Run this command from the same project root folder:
 

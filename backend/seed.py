@@ -3,6 +3,7 @@ import random
 from datetime import date, timedelta
 
 from sqlalchemy import delete, select
+from sqlalchemy.orm import Session
 
 from app.core.config import get_settings
 from app.core.logging_config import configure_logging
@@ -51,6 +52,19 @@ def seed_todos(db, user: User) -> None:
         db.add(todo)
 
 
+def database_has_users(db: Session) -> bool:
+    statement = select(User.id).limit(1)
+    return db.scalar(statement) is not None
+
+
+def seed_database(db: Session) -> None:
+    for test_user in TEST_USERS:
+        user = ensure_user(db, test_user["username"], test_user["password"])
+        seed_todos(db, user)
+
+    db.commit()
+
+
 def main() -> None:
     settings = get_settings()
     configure_logging(settings.log_level)
@@ -59,11 +73,7 @@ def main() -> None:
     Base.metadata.create_all(bind=engine)
 
     with SessionLocal() as db:
-        for test_user in TEST_USERS:
-            user = ensure_user(db, test_user["username"], test_user["password"])
-            seed_todos(db, user)
-
-        db.commit()
+        seed_database(db)
 
     logger.info("Seed completed for users: %s", ", ".join(user["username"] for user in TEST_USERS))
 
