@@ -1,0 +1,14 @@
+{
+  "name": "learning-todo-tests",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "playwright test api",
+    "test:ui": "playwright test ui",
+    "install:browsers": "playwright install"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.54.1"
+  }
+}

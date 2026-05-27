@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Node
+node_modules/
+frontend/node_modules/
+tests/node_modules/
+frontend/dist/
+
+# VS Code
+.vscode/*.log
+
+# Playwright
+playwright-report/
+test-results/
+
+# Environment files
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+
+# Docker and local artifacts
+postgres-data/
+*.pid
+*.seed

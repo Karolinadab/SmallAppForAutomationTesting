@@ -1,0 +1,10 @@
+FROM node:20.19.5-bookworm-slim
+
+WORKDIR /app
+
+COPY frontend/package*.json ./
+RUN npm ci
+
+EXPOSE 5173 9229
+
+CMD ["node", "--inspect=0.0.0.0:9229", "./node_modules/vite/bin/vite.js", "--host", "0.0.0.0", "--port", "5173"]

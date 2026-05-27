@@ -1,0 +1,227 @@
+:root {
+  color-scheme: light;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #173042;
+  background:
+    radial-gradient(circle at top, rgba(178, 224, 255, 0.9), transparent 28%),
+    linear-gradient(180deg, #f7fbfd 0%, #eef6fb 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  background: #0f6a9c;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.secondary-button {
+  background: #dbeaf4;
+  color: #173042;
+}
+
+.danger-button {
+  background: #cf4f4f;
+}
+
+.login-layout,
+.app-layout {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.login-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.hero-copy h1,
+.panel h1,
+.panel h2,
+.todo-card h3 {
+  margin: 0;
+}
+
+.hero-copy {
+  padding: 1rem;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(15, 106, 156, 0.15);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 24px 60px rgba(23, 48, 66, 0.08);
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field span,
+.eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #537289;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid #c6d9e7;
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  background: white;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.muted {
+  color: #648399;
+}
+
+.error-message,
+.error-banner {
+  color: #8d1f1f;
+  background: #ffe7e7;
+  border: 1px solid #f5b5b5;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: end;
+}
+
+.compact-field {
+  min-width: 220px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 1rem;
+}
+
+.panel-header,
+.todo-title-row,
+.todo-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.todo-card {
+  border: 1px solid #d8e5ef;
+  border-radius: 18px;
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+  background: #fbfdff;
+}
+
+.todo-card p {
+  margin: 0.35rem 0 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  background: #dff3e3;
+  color: #245f33;
+  font-size: 0.85rem;
+}
+
+.muted-badge {
+  background: #e8eef2;
+  color: #516978;
+}
+
+.centered-message {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 900px) {
+  .login-layout,
+  .content-grid,
+  .toolbar,
+  .toolbar-actions {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .toolbar-actions {
+    justify-items: stretch;
+  }
+
+  .compact-field {
+    min-width: 0;
+  }
+}
